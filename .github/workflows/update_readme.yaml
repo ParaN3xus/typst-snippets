@@ -45,7 +45,7 @@ jobs:
 
           # Buenard
           mkdir -p ../fonts/buenard
-          wget -O buenard.zip "https://fontmeme.com/fonts/download/202838/buenard.zip"
+          wget --referer="https://www.1001freefonts.com" https://www.1001freefonts.com/d/5610/buenard.zip
           unzip -o buenard.zip -d ../fonts/buenard
           rm buenard.zip
 
