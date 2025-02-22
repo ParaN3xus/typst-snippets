@@ -21,6 +21,8 @@ jobs:
 
       - name: Setup Typst
         uses: typst-community/setup-typst@v2
+        with:
+          version: "latest"
 
       - name: Generate README
         run: python generate_readme.py
