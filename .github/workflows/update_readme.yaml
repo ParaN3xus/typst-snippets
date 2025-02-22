@@ -26,16 +26,17 @@ jobs:
 
       - name: Install Fonts
         run: |
-          # Noto CJK
+          # Noto Serif CJK
           mkdir -p ../fonts/noto-cjk
+          wget -O noto-serif-cjk.zip "https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/04_NotoSerifCJKOTC.zip"
+          unzip -o noto-serif-cjk.zip -d ../fonts/noto-cjk
+          rm noto-serif-cjk.zip
 
-          RELEASE_URL=$(curl -s https://api.github.com/repos/notofonts/noto-cjk/releases/latest | \
-          grep "browser_download_url.*_NotoSerifCJK-TTF-VF.zip" | \
-          cut -d '"' -f 4)
-
-          wget -O noto-cjk.zip "$RELEASE_URL"
-          unzip -o noto-cjk.zip -d ../fonts/noto-cjk
-          rm noto-cjk.zip
+          # Noto Sans CJK
+          mkdir -p ../fonts/noto-cjk
+          wget -O noto-sans-cjk.zip "https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/03_NotoSansCJK-OTC.zip"
+          unzip -o noto-sans-cjk.zip -d ../fonts/noto-cjk
+          rm noto-sans-cjk.zip
 
           # Noto Sans
           mkdir -p ../fonts/noto-sans
