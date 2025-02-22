@@ -11,6 +11,4 @@ And Break It")
 <details>
 <summary>Click to expand</summary>
 
-![1](https://raw.githubusercontent.com/ParaN3xus/typst-snippets/refs/heads/main/yuko/example/1.png)
-
 </details>

@@ -23,8 +23,4 @@ Although I've made efforts to extract customizable options from the huge `build-
 <details>
 <summary>Click to expand</summary>
 
-![1](https://raw.githubusercontent.com/ParaN3xus/typst-snippets/refs/heads/main/tree/example/1.png)
-
-![2](https://raw.githubusercontent.com/ParaN3xus/typst-snippets/refs/heads/main/tree/example/2.png)
-
 </details>
