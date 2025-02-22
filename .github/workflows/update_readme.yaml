@@ -24,6 +24,18 @@ jobs:
         with:
           version: "latest"
 
+      - name: Install Fonts
+        run: |
+          mkdir -p ../fonts
+
+          RELEASE_URL=$(curl -s https://api.github.com/repos/notofonts/noto-cjk/releases/latest | \
+          grep "browser_download_url.*_NotoSerifCJK-TTF-VF.zip" | \
+          cut -d '"' -f 4)
+
+          wget -O fonts.zip "$RELEASE_URL"
+          unzip -o fonts.zip -d ../fonts/
+          rm fonts.zip
+
       - name: Generate README
         run: python generate_readme.py
 

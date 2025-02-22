@@ -25,7 +25,7 @@ def compile_typst(folder_path):
     os.makedirs(example_path)
     
     # 编译typst文件
-    subprocess.run(['typst', 'compile', '--root', folder_path, 
+    subprocess.run(['typst', 'compile', '--font-path', '../fonts' '--root', folder_path, 
                    os.path.join(folder_path, 'example.typ'), 
                    os.path.join(example_path, '{n}.png')])
     
