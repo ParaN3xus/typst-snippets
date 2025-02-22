@@ -49,6 +49,9 @@ jobs:
           unzip -o buenard.zip -d ../fonts/buenard
           rm buenard.zip
 
+      - name: List Typst Fonts
+        run: typst fonts --font-path ../fonts
+
       - name: Generate README
         run: python generate_readme.py
 
