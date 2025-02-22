@@ -27,4 +27,6 @@ This is an refined indenta package for Typst >= 0.13.0.
 <details>
 <summary>Click to expand</summary>
 
+![1](https://raw.githubusercontent.com/ParaN3xus/typst-snippets/refs/heads/main/indenta/example/1.png)
+
 </details>

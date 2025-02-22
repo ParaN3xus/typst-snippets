@@ -15,4 +15,6 @@ This is a POC of custom strechable characters in Typst, which implements `\suum`
 <details>
 <summary>Click to expand</summary>
 
+![1](https://raw.githubusercontent.com/ParaN3xus/typst-snippets/refs/heads/main/longsum/example/1.png)
+
 </details>
