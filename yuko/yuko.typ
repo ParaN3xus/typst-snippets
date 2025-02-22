@@ -216,7 +216,7 @@
           set text(
             size: 40pt,
             fill: rgb(255, 255, 255, 100),
-            font: ("Segoe UI Emoji", "Noto Sans"),
+            font: "Noto Sans",
           )
           grid(
             columns: 3,

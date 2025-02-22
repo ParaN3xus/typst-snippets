@@ -26,15 +26,28 @@ jobs:
 
       - name: Install Fonts
         run: |
-          mkdir -p ../fonts
+          # Noto CJK
+          mkdir -p ../fonts/noto-cjk
 
           RELEASE_URL=$(curl -s https://api.github.com/repos/notofonts/noto-cjk/releases/latest | \
           grep "browser_download_url.*_NotoSerifCJK-TTF-VF.zip" | \
           cut -d '"' -f 4)
 
-          wget -O fonts.zip "$RELEASE_URL"
-          unzip -o fonts.zip -d ../fonts/
-          rm fonts.zip
+          wget -O noto-cjk.zip "$RELEASE_URL"
+          unzip -o noto-cjk.zip -d ../fonts/noto-cjk
+          rm noto-cjk.zip
+
+          # Noto Sans
+          mkdir -p ../fonts/noto-sans
+          wget -O noto-sans.zip "https://font.download/dl/font/noto-sans.zip"
+          unzip -o noto-sans.zip -d ../fonts/noto-sans
+          rm noto-sans.zip
+
+          # Buenard
+          mkdir -p ../fonts/buenard
+          wget -O buenard.zip "https://fontmeme.com/fonts/download/202838/buenard.zip"
+          unzip -o buenard.zip -d ../fonts/buenard
+          rm buenard.zip
 
       - name: Generate README
         run: python generate_readme.py
