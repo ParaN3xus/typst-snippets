@@ -26,16 +26,25 @@
 
 #let processed-tag = metadata("_indenta_processed")
 
-#let fix-indent(body) = {
+#let fix-indent(body, last: none) = {
   let fbody = body.func()
-  let wrapper(x) = box(
-    width: 100%,
-    inset: 0pt,
-    outset: 0pt,
-    fill: none,
-    stroke: none,
-    processed-tag + x,
-  )
+  let wrapper(x, last) = context {
+    if type(last) == content and (last.func() in ([ ].func(), parbreak)) {
+      v(-par.leading) // fix extra leading and justify error
+    }
+    box(
+      width: 100%,
+      inset: 0pt,
+      outset: 0pt,
+      fill: none,
+      // stroke: 1pt,
+      processed-tag + x,
+    )
+  }
+
+  let rshift(arr, pad) = {
+    ((pad,) + arr).slice(0, arr.len())
+  }
 
   let fstr = repr(fbody)
 
@@ -49,7 +58,7 @@
     } else if fstr == "styled" {
       // special: positional children
       body = fbody(
-        fix-indent(body.child),
+        fix-indent(body.child, last: last),
         body.styles,
       )
     } else {
@@ -62,7 +71,7 @@
           ps
         },
         // process the child
-        fix-indent(body.at(ckey)),
+        fix-indent(body.at(ckey), last: last),
       )
     }
   }
@@ -150,13 +159,27 @@
 
       // process each group
       body = fbody(
-        groups.map(group => {
-          if type(group) == array {
-            wrapper(fbody(group.map(fix-indent)))
-          } else {
-            fix-indent(group)
-          }
-        }),
+        groups
+          .zip(rshift(groups, last))
+          .map(x => {
+            let group = x.first()
+            let last_ = x.last()
+            if type(group) == array {
+              wrapper(
+                fbody(
+                  group
+                    .zip(rshift(group, last_))
+                    .map(y => fix-indent(
+                      y.first(),
+                      last: y.last(),
+                    )),
+                ),
+                last,
+              )
+            } else {
+              fix-indent(group, last: last_)
+            }
+          }),
       )
     } else {
       // normal case
@@ -166,7 +189,13 @@
           _ = ps.remove(ckey)
           ps
         },
-        ..body.at(ckey).map(fix-indent),
+        ..body
+          .at(ckey)
+          .zip(rshift(body.at(ckey), last))
+          .map(x => fix-indent(
+            x.first(),
+            last: x.last(),
+          )),
       )
     }
   }
@@ -174,7 +203,7 @@
   let isb = is-block(body, fbody)
 
   if isb {
-    return wrapper(body)
+    return wrapper(body, last)
   } else {
     return body
   }
