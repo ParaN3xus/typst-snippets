@@ -37,4 +37,6 @@ By specifying different counter keys, functions, and numbering patterns, you can
 <details>
 <summary>Click to expand</summary>
 
+![1](https://raw.githubusercontent.com/ParaN3xus/typst-snippets/refs/heads/main/chapnum/example/1.png)
+
 </details>
