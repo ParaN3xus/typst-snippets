@@ -16,10 +16,8 @@
 
   show: x => config.fold(
     x,
-    (it, config) => {
-      let k = config.first()
-      let f = config.at(1)
-      let n = config.last()
+    (it, cfg) => {
+      let (k, f, n) = cfg
 
       show k: set f(
         numbering: _ => {
