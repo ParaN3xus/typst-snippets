@@ -1,4 +1,4 @@
-#import "@preview/tiaoma:0.2.1"
+#import "@preview/tiaoma:0.3.0"
 
 #let welcome(username) = [
   #set text(font: ("Libertinus Serif", "Noto Serif CJK SC"), size: 20pt, lang: "zh")

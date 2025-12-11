@@ -1,6 +1,6 @@
 
 #import "@preview/suiji:0.3.0": *
-#import "@preview/cetz:0.3.2": canvas, draw
+#import "@preview/cetz:0.4.2": canvas, draw
 
 #let yuko(msg, text-size: 70pt) = {
   let width = 1770pt
@@ -139,7 +139,7 @@
             canvas(
               length: 1.5pt,
               {
-                import draw: line, content
+                import draw: content, line
 
                 let rotated-rect(x, y, rect-dict) = {
                   let vec-mul(factor, vec) = {
