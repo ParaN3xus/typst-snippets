@@ -3,6 +3,7 @@ ParaN3xus's Typst Snippets
 
 ## Contents
 
+- [bionic](https://github.com/ParaN3xus/typst-snippets/tree/main/bionic)
 - [chapnum](https://github.com/ParaN3xus/typst-snippets/tree/main/chapnum)
 - [indenta](https://github.com/ParaN3xus/typst-snippets/tree/main/indenta)
 - [longsum](https://github.com/ParaN3xus/typst-snippets/tree/main/longsum)

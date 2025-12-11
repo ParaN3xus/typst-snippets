@@ -30,3 +30,9 @@ Bionic Reading is a new method facilitating the reading process...
 ```
 
 ## Example
+<details>
+<summary>Click to expand</summary>
+
+![1](https://raw.githubusercontent.com/ParaN3xus/typst-snippets/refs/heads/main/bionic/example/1.png)
+
+</details>
